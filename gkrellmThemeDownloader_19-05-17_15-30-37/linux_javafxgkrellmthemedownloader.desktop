@@ -1,0 +1,23 @@
+# if you use this .desktop file on your Linux desktop then
+# make a small change to launch.sh:
+# remove # from the front of: cd /pathTo... 
+# and change: cd /pathTo... to the full path of
+# this directory: javafxgkrellmthemedownloader
+
+# also edit this file:
+# Exec= and Icon= (below) need to be changed to the full path
+# of: javafxgkrellmthemedownloader
+# then: save
+
+# need help ? please contact me at:
+# Google+ community: https://plus.google.com/u/0/communities/103132436474934296147
+# IRC: irc.freenode.net #logFarm
+
+[Desktop Entry]
+Encoding=UTF-8
+Name=javafxgkrellmthemedownloader
+Comment=javafxgkrellmthemedownloader
+Exec=/pathTo/javafxgkrellmthemedownloader/launch.sh
+Icon=/pathTo/javafxgkrellmthemedownloader/icon_64.png
+Type=Application
+StartupNotify=true
