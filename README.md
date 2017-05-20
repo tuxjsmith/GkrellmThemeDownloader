@@ -1,5 +1,5 @@
 # GkrellmThemeDownloader
-Download and unpack Gkrellm .tar.gz pages.
+Download and unpack Gkrellm .tar.gz files.
 
 REQUIREMENTS
 
