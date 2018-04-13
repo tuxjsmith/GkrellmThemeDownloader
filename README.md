@@ -25,7 +25,7 @@ Java 8
 
 
 <br>
-<b>WHAT IS IT<b>
+<b>WHAT IS IT</b>
 
 This application downloads all Gkrellm theme files, .tar.gz files
 listed on a web page and unpacks them.
