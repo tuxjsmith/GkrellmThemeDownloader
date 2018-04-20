@@ -3,7 +3,7 @@ Download and unpack Gkrellm .tar.gz files.
 
 <b>CLONE THIS PROJECT</b>
 
-- NetBeans > Team > Remote > Clone
+- NetBeans > Team > GIT > Clone
 
 - Repository URL: https://github.com/tuxjsmith/GkrellmThemeDownloader.git
 
