@@ -25,6 +25,8 @@
  */
 package net.logfarm.javaFXGkrellmDownloader;
 
+import utilities.LFGTD_HtmlSplitter;
+import utilities.LFGTD_FileNameValidator;
 import java.io.IOException;
 import java.nio.file.FileVisitResult;
 import java.nio.file.FileVisitor;
@@ -33,17 +35,18 @@ import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import static junit.framework.TestCase.assertEquals;
-import net.logfarm.javaFXGkrellmDownloader.Constants.DOWNLOAD_STATUS;
+import utilities.LFGTD_Constants.DOWNLOAD_STATUS;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static net.logfarm.javaFXGkrellmDownloader.Constants.TEST_DOWNLOAD_DIR;
-import static net.logfarm.javaFXGkrellmDownloader.Constants.THEME_FILE_NAMES_AL;
-import static net.logfarm.javaFXGkrellmDownloader.Constants.USER_LIST_OF_FILES_AL;
-import static net.logfarm.javaFXGkrellmDownloader.Constants.WEBPAGE;
+import static utilities.LFGTD_Constants.TEST_DOWNLOAD_DIR;
+import static utilities.LFGTD_Constants.THEME_FILE_NAMES_AL;
+import static utilities.LFGTD_Constants.USER_LIST_OF_FILES_AL;
+import static utilities.LFGTD_Constants.WEBPAGE;
 import static org.junit.Assert.*;
+import utilities.LFGTD_Constants;
 
 /**
  *
@@ -89,7 +92,7 @@ public class HtmlSplitterTest {
     }
 
     /**
-     * ID: HtmlSplitter 001<br> 
+     * ID: LFGTD_HtmlSplitter 001<br> 
      * EXPECTED RESULT: THEME_FILE_NAMES_AL.size() = DirectoryCount.getCount().intValue() <br>
      * DESCRIPTION:<br>
      * Test of <b>downloadAllThemes</b> method.<br>
@@ -103,7 +106,7 @@ public class HtmlSplitterTest {
         /*
             All themes have been downloaded.
          */
-        assertEquals(DOWNLOAD_STATUS.DOWNLOAD_GOOD, HtmlSplitter.downloadAllThemes(Boolean.FALSE));
+        assertEquals(DOWNLOAD_STATUS.DOWNLOAD_GOOD, LFGTD_HtmlSplitter.downloadAllThemes(Boolean.FALSE));
 
         /*
             Confirm the correct number of themes have been downloaded.
@@ -123,7 +126,7 @@ public class HtmlSplitterTest {
     }
     
     /**
-     * ID: HtmlSplitter 002<br> 
+     * ID: LFGTD_HtmlSplitter 002<br> 
      * EXPECTED RESULT: THEME_FILE_NAMES_AL.size() = DirectoryCount.getCount().intValue()<br> 
      * DESCRIPTION:<br> 
      * Test of <b>downloadAllThemes</b> method.<br>
@@ -141,7 +144,7 @@ public class HtmlSplitterTest {
         USER_LIST_OF_FILES_AL.add ("Eazel.gkrellm.tar.gz");
         USER_LIST_OF_FILES_AL.add ("Evolution.tar.gz");
         //
-        assertEquals(DOWNLOAD_STATUS.DOWNLOAD_GOOD, HtmlSplitter.downloadAllThemes(Boolean.FALSE));
+        assertEquals(DOWNLOAD_STATUS.DOWNLOAD_GOOD, LFGTD_HtmlSplitter.downloadAllThemes(Boolean.FALSE));
         
         /*
             Confirm the correct number of themes have been downloaded.
@@ -160,7 +163,7 @@ public class HtmlSplitterTest {
     }
 
     /**
-     * ID: HtmlSplitter 003<br> 
+     * ID: LFGTD_HtmlSplitter 003<br> 
      * EXPECTED RESULT: Number of file names = 187<br> 
      * DESCRIPTION:<br> 
      * Test of <b>getThemeGzipFilenames</b> method.<br>
@@ -175,11 +178,11 @@ public class HtmlSplitterTest {
         
         final Integer QTY = 187;
         
-        assertEquals(QTY.intValue(), HtmlSplitter.getFileNamesFromWeb(URL_S, Boolean.TRUE).size());
+        assertEquals(QTY.intValue(), LFGTD_HtmlSplitter.getFileNamesFromWeb(URL_S, Boolean.TRUE).size());
     }
     
     /**
-     * ID: HtmlSplitter 004<br> 
+     * ID: LFGTD_HtmlSplitter 004<br> 
      * EXPECTED RESULT:<br> 
      * DESCRIPTION:<br> 
      * Test of <b>getThemeGzipFilenames</b> method.<br>
@@ -195,11 +198,11 @@ public class HtmlSplitterTest {
         /*
             Validate downloaded .tar.gz file names
         */
-        for (String fileName : HtmlSplitter.getFileNamesFromWeb(URL_S, Boolean.TRUE)) {
+        for (String fileName : LFGTD_HtmlSplitter.getFileNamesFromWeb(URL_S, Boolean.TRUE)) {
             
-            Constants.FILE_NAME_STATUS fileNameStatus = FileNameValidator.validateGzipTarFileName(fileName);
+            LFGTD_Constants.FILE_NAME_STATUS fileNameStatus = LFGTD_FileNameValidator.validateGzipTarFileName(fileName);
             
-            if (!fileNameStatus.equals(Constants.FILE_NAME_STATUS.GOOD_FILENAME)) {
+            if (!fileNameStatus.equals(LFGTD_Constants.FILE_NAME_STATUS.GOOD_FILENAME)) {
                 
                 fail ("invalid file name");
             }
@@ -211,7 +214,7 @@ public class HtmlSplitterTest {
     }
     
     /**
-     * ID: HtmlSplitter 005<br>
+     * ID: LFGTD_HtmlSplitter 005<br>
      * EXPECTED RESULT: getQty = 187<br> 
      * DESCRIPTION: Test of <b>getQty</b> method.<br>
      */
@@ -222,7 +225,7 @@ public class HtmlSplitterTest {
         
         final Integer QTY = 187;
         
-        assertEquals(QTY, HtmlSplitter.getQty());
+        assertEquals(QTY, LFGTD_HtmlSplitter.getQty());
     }
     
     /*

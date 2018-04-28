@@ -26,7 +26,7 @@
 
 .root {
     
-    -fx-background-image: url("background.jpg");
+    -fx-background-image: url("/res/background.jpg");
     -fx-text-fill: linear-gradient(orange, orangered);
 }
 
@@ -46,7 +46,7 @@
 
 .text-area .content {
     
-    -fx-background-image: url("background2.jpg");
+    -fx-background-image: url("/res/background2.jpg");
 }
 
 .text-field {
@@ -56,7 +56,7 @@
     -fx-border-width: 3px;
     -fx-text-fill: linear-gradient(yellow, orangered);
     -fx-effect:innershadow(three-pass-box, rgba(0,0,0,0.7), 6,0,0,2);
-    -fx-background-image: url("background2.jpg");
+    -fx-background-image: url("/res/background2.jpg");
 }
 
 .check-box {
@@ -101,6 +101,11 @@
     -fx-font-weight: bold;
     -fx-background-color: linear-gradient(yellow, orange);
     -fx-effect: innershadow(three-pass-box, rgba(0,0,0,0.7), 6,0,0,2);
+}
+
+.button:hover, .check-box:hover{
+    
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
 }
 
 .button:pressed {

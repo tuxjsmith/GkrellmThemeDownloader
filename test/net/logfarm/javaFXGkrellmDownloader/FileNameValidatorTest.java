@@ -25,6 +25,7 @@
  */
 package net.logfarm.javaFXGkrellmDownloader;
 
+import utilities.LFGTD_FileNameValidator;
 import java.util.concurrent.ConcurrentHashMap;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -32,6 +33,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import utilities.LFGTD_Constants;
 
 /**
  *
@@ -59,7 +61,7 @@ public class FileNameValidatorTest {
     }
 
     /**
-     * ID: FileNameValidator 001<br> 
+     * ID: LFGTD_FileNameValidator 001<br> 
      * EXPECTED RESULT: E-Tech_XSlate_GKrellM.tar.gz = FILE_NAME_STATUS.GOOD_FILENAME <br>
      * DESCRIPTION:<br>
      * Test of <b>validateGzipTarFileName</b> method.
@@ -72,11 +74,11 @@ public class FileNameValidatorTest {
         
         final String GOOD_FILE_NAME = "E-Tech_XSlate_GKrellM.tar.gz";
         
-        assertEquals(Constants.FILE_NAME_STATUS.GOOD_FILENAME, FileNameValidator.validateGzipTarFileName(GOOD_FILE_NAME));
+        assertEquals(LFGTD_Constants.FILE_NAME_STATUS.GOOD_FILENAME, LFGTD_FileNameValidator.validateGzipTarFileName(GOOD_FILE_NAME));
     }
     
     /**
-     * ID: FileNameValidator 002<br> 
+     * ID: LFGTD_FileNameValidator 002<br> 
      * EXPECTED RESULT: E^Tech&XSlate£GKrellM.tar.gz = FILE_NAME_STATUS.ILLEGAL_FILENAME_CHARACTER <br>
      * DESCRIPTION:<br>
      * Test of <b>validateGzipTarFileName</b> method.
@@ -89,11 +91,11 @@ public class FileNameValidatorTest {
         
         final String BAD_FILE_NAME_ILLEGAL_FILENAME_CHARACTER =  "E^Tech&XSlate£GKrellM.tar.gz";
         
-        assertEquals(Constants.FILE_NAME_STATUS.ILLEGAL_FILENAME_CHARACTER, FileNameValidator.validateGzipTarFileName(BAD_FILE_NAME_ILLEGAL_FILENAME_CHARACTER));
+        assertEquals(LFGTD_Constants.FILE_NAME_STATUS.ILLEGAL_FILENAME_CHARACTER, LFGTD_FileNameValidator.validateGzipTarFileName(BAD_FILE_NAME_ILLEGAL_FILENAME_CHARACTER));
     }
     
     /**
-     * ID: FileNameValidator 003<br> 
+     * ID: LFGTD_FileNameValidator 003<br> 
      * EXPECTED RESULT: E-Tech_XSlate_GKrellM.tr.gz = FILE_NAME_STATUS.MISSING_TAR_GZ <br>
      * DESCRIPTION:<br>
      * Test of <b>validateGzipTarFileName</b> method.
@@ -106,11 +108,11 @@ public class FileNameValidatorTest {
         
         final String BAD_FILE_NAME_MISSING_TAR_GZ =  "E-Tech_XSlate_GKrellM.tr.gz";
         
-        assertEquals(Constants.FILE_NAME_STATUS.MISSING_TAR_GZ, FileNameValidator.validateGzipTarFileName(BAD_FILE_NAME_MISSING_TAR_GZ));
+        assertEquals(LFGTD_Constants.FILE_NAME_STATUS.MISSING_TAR_GZ, LFGTD_FileNameValidator.validateGzipTarFileName(BAD_FILE_NAME_MISSING_TAR_GZ));
     }
 
     /**
-     * ID: FileNameValidator 004<br> 
+     * ID: LFGTD_FileNameValidator 004<br> 
      * EXPECTED RESULT: ConcurrentHashMap containing two file names and FILE_NAME_STATUS: <br>
      * - HeliX%Sweetpill.gkrellm.tar.gz, FILE_NAME_STATUS.ILLEGAL_FILENAME_CHARACTER<br>
      * - SolarE-2.gkrellm.tar.z, FILE_NAME_STATUS.MISSING_TAR_GZ<br>
@@ -124,11 +126,11 @@ public class FileNameValidatorTest {
         
         String spaceSeparatedFileNames = "D.A.E.gkrellm.tar.gz Dune-GKrellM.tar.gz HeliX%Sweetpill.gkrellm.tar.gz SolarE-2.gkrellm.tar.z";
         
-        ConcurrentHashMap<String, Constants.FILE_NAME_STATUS> expResult = new ConcurrentHashMap ();
-        expResult.put("HeliX%Sweetpill.gkrellm.tar.gz", Constants.FILE_NAME_STATUS.ILLEGAL_FILENAME_CHARACTER);
-        expResult.put("SolarE-2.gkrellm.tar.z", Constants.FILE_NAME_STATUS.MISSING_TAR_GZ);
+        ConcurrentHashMap<String, LFGTD_Constants.FILE_NAME_STATUS> expResult = new ConcurrentHashMap ();
+        expResult.put("HeliX%Sweetpill.gkrellm.tar.gz", LFGTD_Constants.FILE_NAME_STATUS.ILLEGAL_FILENAME_CHARACTER);
+        expResult.put("SolarE-2.gkrellm.tar.z", LFGTD_Constants.FILE_NAME_STATUS.MISSING_TAR_GZ);
         
-        ConcurrentHashMap<String, Constants.FILE_NAME_STATUS> result = FileNameValidator.getBadGzipTarFileNames(spaceSeparatedFileNames);
+        ConcurrentHashMap<String, LFGTD_Constants.FILE_NAME_STATUS> result = LFGTD_FileNameValidator.getBadGzipTarFileNames(spaceSeparatedFileNames);
         
         assertEquals(expResult, result);
     }    
