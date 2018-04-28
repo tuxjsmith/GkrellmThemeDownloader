@@ -1,7 +1,19 @@
 # GkrellmThemeDownloader
 Download and unpack Gkrellm .tar.gz files.
 
-REQUIREMENTS
+<b>CLONE THIS PROJECT</b>
+
+- NetBeans > Team > GIT > Clone
+
+- Repository URL: https://github.com/tuxjsmith/GkrellmThemeDownloader.git
+
+- GitHub user name.
+- GitHub password
+
+- Clone into: /home/userName/NetBeansProjects
+
+<br>
+<b>REQUIREMENTS</b>
 
 Linux
 
@@ -12,7 +24,8 @@ Java 8
   http://www.webupd8.org/2014/03/how-to-install-oracle-java-8-in-debian.html
 
 
-WHAT IS IT
+<br>
+<b>WHAT IS IT</b>
 
 This application downloads all Gkrellm theme files, .tar.gz files
 listed on a web page and unpacks them.
@@ -21,7 +34,8 @@ The recommended download location is:
 ~/.gkrellm2/themes
 
 
-HOW TO
+<br>
+<b>HOW TO</b>
 
 To download and unpack all Gkrellm theme files listed on the
 www.muhri.net web page:
